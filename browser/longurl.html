@@ -1,0 +1,78 @@
+<!--
+        longurl.html
+        
+        Copyright 2012 Joshua S. Weinstein <josher19@users.sf.net>
+        
+        This program is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation; either version 2 of the License, or
+        (at your option) any later version.
+        
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+        
+        You should have received a copy of the GNU General Public License
+        along with this program; if not, write to the Free Software
+        Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+        MA 02110-1301, USA.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Longurl</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 0.18" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js"></script>
+</head>
+
+<body>
+
+<form>
+    <hr noshade="noshade" />   
+    <label for="url">URL: </label> <input type="url" id="url" name="url" value="" /> <input type="button" value="Get URL" name="get" id="get" /> <input type="button" value="Go" name="go" id="go" /><br/>
+    <hr noshade="noshade" />   
+    <label for="longurl">LongURL: </label> <span id="longURL"></span> 
+    <hr noshade="noshade" />   
+    <div id="log">...</div>
+</form>
+
+<script>
+
+function lastlink(href) {
+    $('#go').show()
+            .unbind('click')
+            .click(function() {
+                location = href
+            })
+    $('#longURL').html(href.link(href))
+    return href
+}
+function linkify(str) { 
+    return str.replace(/http[^"]+/g, function(it) { return it.link(lastlink(it))  }) 
+}
+
+var log = function() { jQuery('#log').html(linkify(JSON.stringify(arguments))); }
+// if (this.console) log = console.log.bind(console); 
+
+jQuery(function($) {
+    log('loaded jQuery');
+    $('#go').hide();
+    $('#url').change(function() {
+       $('#get').css({'border':'1px inset pink'});
+    });
+    $("#get").click(function() {
+       $('#get').css({'border':''});
+       var urlz = $('#url').val();
+       // jQuery.getScript('http://www.longurlplease.com/api/v1.1?q=http://bit.ly/enAo&q=http://short.ie/bestxkcd&callback=log')
+       jQuery.getScript('http://www.longurlplease.com/api/v1.1?callback=log&q=' + urlz)
+    });
+});
+</script>
+	
+</body>
+</html>
