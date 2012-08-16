@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+longurl = require("../lib/longurl"); 
+longurl(process.argv.pop());
