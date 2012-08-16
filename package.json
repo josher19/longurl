@@ -1,0 +1,29 @@
+{
+  "author": "Joshua S. Weinstein <josher19@users.sf.net>",
+  "name": "longurl",
+  "description": "expand shorturls",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/josher19/longurl.git"
+  },
+  "main": "./lib/longurl",
+  "bin": {
+    "longurl": "bin/longurl"
+  },
+  "scripts": {
+    "compile": "coffee -o lib --bare -c src",
+    "watch": "coffee -w -o lib --bare -c src &"
+  },
+  "dependencies": {
+    "request": "*"
+  },
+  "devDependencies": {
+    "coffee-script": "1.3+",
+    "chai": "*"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
