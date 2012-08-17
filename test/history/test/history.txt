@@ -1,0 +1,30 @@
+str(getExportList(null, "\nvar memo = initGlobal();"))
+str(getExportList(null, "var memo = initGlobal();"))
+str(getExportList())
+str(getExportList(null, "var memo = initGlobal();"))
+getExportList = function getExportList(res,code,more) { res = res || globalFunctions(), vars = res.map(function(it,ndx) { return it + " = " + global[it]; }), mod = res.concat[more || []].map(function(it) { return it + ": " + it }); return ["var " + vars.join(",\n  "), String(null != code ? code : ""), "module.exports = {\n  " + mod.join(", ") + "\n};"].join("\n") }
+str(getExportList(null, "var memo = initGlobal();", ["memo"]))
+res.concat([])
+res.concat()
+res.concat(["memo"])
+res.concat(undefined)
+getExportList = function getExportList(res,code,more) { res = res || globalFunctions(), vars = res.map(function(it,ndx) { return it + " = " + global[it]; }), mod = res.concat(more || []).map(function(it) { return it + ": " + it }); return ["var " + vars.join(",\n  "), String(null != code ? code : ""), "module.exports = {\n  " + mod.join(", ") + "\n};"].join("\n") }
+str(getExportList(null, "var memo = initGlobal();", ["memo"]))
+str(getExportList(null,null, ["res"]))
+res
+history.filter(function(it) { return it.indexOf("test.saveExportList") != -1 }
+)
+history.filter(function(it) { return it.indexOf("test.saveExportList") != -1 });
+hist.get()
+history
+hist.set(null)
+hist.setDefault()
+hist.get()
+hist.setDefault(null)
+hist.get()
+hist.get
+hist.get.toString()
+hh.get()
+hh = require('./index.js')
+hh = require('../index.js')
+hh.save()

@@ -12,6 +12,7 @@
     "longurl": "bin/longurl"
   },
   "scripts": {
+    "test": "NODE_ENV=test node_modules/chai/node_modules/.bin/mocha --reporter spec",
     "compile": "coffee -o lib --bare -c src",
     "watch": "coffee -w -o lib --bare -c src &"
   },

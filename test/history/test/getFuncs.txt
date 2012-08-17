@@ -1,0 +1,30 @@
+var resolved=false; Object.keys(global).filter(function(it,ndx) { resolved = resolved || it === "require"; return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n")
+var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved = resolved || it === "require"; return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n")
+res.toString()
+console.log(res)
+getm.name
+var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved = resolved || it === "require"; return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n")
+var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved = resolved || it === "require"; return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n"); console.log(res)
+getGlobalFunctions = function() { var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved = resolved || it === "require"; return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n"); }
+getGlobalFunctions()
+getGlobalFunctions = function() { var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved = resolved || it === "require"; return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n"); return res;}
+getGlobalFunctions()
+console.log(getGlobalFunctions())
+res
+function getGlobalFunctions { var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved = resolved || it === "require"; return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n"); return res;}
+function getGlobalFunctions() { var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved = resolved || it === "require"; return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n"); return res;}
+console.log(getGlobalFunctions())
+function getGlobalFunctions() { var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved || (resolved = it === "require"); return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n"); return res;}
+console.log(getGlobalFunctions())
+getGlobalFunctions.toString()
+global.getGlobalFunctions
+function getGlobalFunctions() { var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved || (resolved = true || it === "require"); return resolved && (typeof global[it] == "function") && !~String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n"); return res;}
+global.getGlobalFunctions
+console.log(getGlobalFunctions())
+global.Uint32Array
+global.Uint32Array.toString()
+global.Uint32Array.toString().indexOf("[native code]")
+function getGlobalFunctions() { var resolved=false, res =Object.keys(global).filter(function(it,ndx) { resolved || (resolved = it === "require"); return resolved && (typeof global[it] == "function") && 25 != String(global[it]).indexOf("[native code]") && it !== "require"  }).map(function(it) { return global[it] }).join("\n\n"); return res;}
+console.log(getGlobalFunctions())
+hhh.get()
+hhh.save("getFuncs.txt")
