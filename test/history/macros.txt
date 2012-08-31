@@ -1,0 +1,23 @@
+livescript> LiveScript.macro
+{ [Function]
+  list: 
+   { LOG: [Function],
+     up: [Function],
+     callme: [Function] } }
+function (named, defn){
+  var ref$;
+  return ((ref$ = LiveScript.macro).list || (ref$.list = {}))[named];
+}
+livescript> LiveScript.macro.def = LiveScript.defmacro
+[Function]
+function (named, defn){
+  var ref$;
+  return ((ref$ = LiveScript.macro).list || (ref$.list = {}))[named] = defn;
+}
+livescript> LiveScript.macro.run = LiveScript.callmacro
+[Function]
+function (named){
+  var args;
+  args = slice$.call(arguments, 1);
+  return LiveScript.macro(named).apply(this, args);
+}

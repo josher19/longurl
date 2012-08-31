@@ -16,10 +16,13 @@ getHistory = ->
 #        global.module.exports.repl?.rli.history.slice!.reverse!
     h = history or 
         LiveScript?.history or 
-        global?.module.exports.repl?.rli?.history or 
+        global?.module?.exports?.repl?.rli?.history or 
+        module?.exports?.repl?.rli?.history or
         global?.history or 
         window?.history
-    throw "Must run from REPL or set global history" unless h
+    if not h
+        throw "Must run from REPL or set global history" if not global?
+        h = []
     h.slice!.reverse!
 
 saveHistory = (file="history.txt", enc, num, hist=getHistory!) -> 

@@ -9,9 +9,12 @@ setDefault = function(hist){
 };
 getHistory = function(){
   var ref$, ref1$, h;
-  h = history || (typeof LiveScript != 'undefined' && LiveScript !== null ? LiveScript.history : void 8) || (typeof global != 'undefined' && global !== null ? (ref$ = global.module.exports.repl) != null ? (ref1$ = ref$.rli) != null ? ref1$.history : void 8 : void 8 : void 8) || (typeof global != 'undefined' && global !== null ? global.history : void 8) || (typeof window != 'undefined' && window !== null ? window.history : void 8);
+  h = history || (typeof LiveScript != 'undefined' && LiveScript !== null ? LiveScript.history : void 8) || (typeof global != 'undefined' && global !== null ? (ref$ = global.module) != null ? (ref1$ = ref$.exports) != null ? (ref$ = ref1$.repl) != null ? (ref1$ = ref$.rli) != null ? ref1$.history : void 8 : void 8 : void 8 : void 8 : void 8) || (typeof module != 'undefined' && module !== null ? (ref$ = module.exports) != null ? (ref1$ = ref$.repl) != null ? (ref$ = ref1$.rli) != null ? ref$.history : void 8 : void 8 : void 8 : void 8) || (typeof global != 'undefined' && global !== null ? global.history : void 8) || (typeof window != 'undefined' && window !== null ? window.history : void 8);
   if (!h) {
-    throw "Must run from REPL or set global history";
+    if (typeof global == 'undefined' || global === null) {
+      throw "Must run from REPL or set global history";
+    }
+    h = [];
   }
   return h.slice().reverse();
 };
