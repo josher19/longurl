@@ -195,3 +195,66 @@ describe 'argparse', (a) ->
         
         expect(typeof cb).equal("function");
         expect cb .equal getHistory
+    
+    it 'should be able to mix defaults and types (^)', ->
+        {file,encoding,cb} = res = argparse([{'file^':'string'},{'encoding':'UTF-8'},{'!cb^':'function'}], {0:"history.txt", 1:"GBK"})
+        
+        expect typeof file .equal 'string' 
+        expect 'history.txt' .equal file
+        
+        expect 'string' .equal typeof encoding
+        expect encoding .equal 'GBK'
+        
+        expect 'undefined' .equal typeof cb
+    
+    it 'should work for falsey values', ->
+        {bool,str,num} = res = argparse([{'bool^':'boolean'},{'?str^':'string'},{'!num^':'number'}],[false,0,''])
+        
+        console.log res
+        
+        expect typeof bool .equal 'boolean'
+        expect false .equal bool
+        
+        # expect typeof str .equal 'string'
+        # expect '' .equal str
+        
+        expect typeof num .equal 'number'
+        expect 0 .equal num
+        
+    it 'should be able to group arguments', ->
+        res = argparse.group [false,0,'',getHistory,undefined,{found:true},[1,2,3,"four"],null]
+
+        console.log res
+        
+        expect res['boolean'] .exists
+
+        expect res['boolean'].length .equal 1
+        
+        expect res['boolean'][0] .not.equal null
+        
+        expect false .equal res['boolean'][0]
+        
+        expect 0 .equal res['number'][0]
+        
+        expect '' .equal res['string'][0]
+
+        expect getHistory .equal res['function'][0]
+        
+        expect 4 .equal res['undefined'][0]
+        
+        expect res['boolean'].length .greaterThan 0
+        expect true .equal res['object'][0].found
+        expect 4 .equal res['object'][1].length
+
+        expect 7 .equal res['null'][0]
+        
+        expectedRes = { 
+            boolean: [ false ],
+            number: [ 0 ],
+            string: [ '' ],
+            function: [ getHistory ],
+            undefined: [ 4 ],
+            object: [ { found: true }, [ 1, 2, 3, 'four' ] ],
+            null: [ 7 ] 
+        }
+        expect res .eql expectedRes
