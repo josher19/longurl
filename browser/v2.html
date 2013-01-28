@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Longurl Version 2.0</title>
+  <script type='text/javascript' src='jquery.js'></script>
+</head>
+<body>
+
+<form name=myform>
+<label for=url>URL: <input id=url name=url type=url value="http://bit.ly/rg6wp" autofocus="autofocus" /></label>
+<input type=button name=go id=go value=Go />
+<div id="results"></div>
+</form>
+
+<script type="text/javascript">
+function showURL(data) {
+	if (typeof console !== "undefined") console.log(data); 
+	if (!data) return;
+	var title = data.title, longurl = data["long-url"];
+	jQuery('#results').html(title.link(longurl));
+}
+jQuery(function($) {
+
+	function showError() { console.log(arguments); }
+	function expandURL(url) {
+		try {
+			$.getScript('http://api.longurl.org/v2/expand?title=1&format=json&response-code=1&url=' + escape(url) + '&callback=showURL');
+		} catch(err) {
+			showError(err);
+		}
+	}
+	$('#url').select().focus();
+	$('#go').click(function(ev) { expandURL($('#url').val()) });
+});
+
+
+</script>
+
+</body>
+</html>
